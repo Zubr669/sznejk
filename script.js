@@ -1,6 +1,6 @@
 const rozmiar = 15;
 const canv = 800
-
+var lastKierunek;
 
 var c = document.getElementById("pole");
 var ctx = c.getContext("2d");
@@ -84,6 +84,7 @@ function tick() {
         default:
             break;
     }
+    lastKierunek = kierunek;
     if (nowy[0] < 0 || nowy[0] > rozmiar || nowy[1] < 0 || nowy[1] > rozmiar) {
         przejebałeś();
     };
@@ -115,16 +116,16 @@ function tick() {
     }
 }
 addEventListener("keydown", e => {
-    if (e.code == "ArrowRight" && kierunek != 3) {
+    if (e.code == "ArrowRight" && lastKierunek != 3) {
         kierunek = 1;
     };
-    if (e.code == "ArrowDown" && kierunek != 4) {
+    if (e.code == "ArrowDown" && lastKierunek != 4) {
         kierunek = 2;
     };
-    if (e.code == "ArrowLeft" && kierunek != 1) {
+    if (e.code == "ArrowLeft" && lastKierunek != 1) {
         kierunek = 3;
     };
-    if (e.code == "ArrowUp" && kierunek != 2) {
+    if (e.code == "ArrowUp" && lastKierunek != 2) {
         kierunek = 4;
     };
 });
