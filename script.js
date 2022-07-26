@@ -161,16 +161,17 @@ function tick() {
     }
 }
 addEventListener("keydown", e => {
-    if (e.code == "ArrowRight" && lastKierunek != 3) {
+    
+    if ( (e.code == "ArrowRight" || e.code == "KeyD") && lastKierunek != 3) {
         kierunek = 1;
     };
-    if (e.code == "ArrowDown" && lastKierunek != 4) {
+    if ( (e.code == "ArrowDown" ||  e.code == "KeyS") && lastKierunek != 4) {
         kierunek = 2;
     };
-    if (e.code == "ArrowLeft" && lastKierunek != 1) {
+    if ( (e.code == "ArrowLeft" || e.code == "KeyA" ) && lastKierunek != 1) {
         kierunek = 3;
     };
-    if (e.code == "ArrowUp" && lastKierunek != 2) {
+    if ( (e.code == "ArrowUp"|| e.code == "KeyW" )  && lastKierunek != 2) {
         kierunek = 4;
     };
 });
