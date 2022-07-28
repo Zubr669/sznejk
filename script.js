@@ -223,7 +223,7 @@ myform.addEventListener("send", function (event){// listen for the submit button
 	 formData.append("score", score);
 
 	 // fetch request
-	 fetch ("dice.php",{// sending to dice.php
+	 fetch ("cos.php",{// sending to dice.php
 		 method: "post", // using method post
 		 body: formData // we are sending formData
 	})
