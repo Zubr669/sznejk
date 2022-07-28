@@ -207,17 +207,14 @@ function resetForm (){
 // code to execute when
 myform.addEventListener("submit", function (event){// listen for the submit button to be clicked
 	 event.preventDefault(); // don't reload page
-	 var tenth_score=document.getElementById("lowscore").value; // lowest high score
-	 var this_score=document.getElementById("wynik").value; // player's current score
+	 //var tenth_score=document.getElementById("lowscore").value; // lowest high score
+	 //var this_score=document.getElementById("wynik").value; // player's current score
 
-	 if (this_score > tenth_score){// if the player's current score > the lowest high score
-		 document.getElementById("message").src="images/highscore.gif"; // change to highscore gif
-		 document.getElementById("message").alt="You made it on the highscore list!!!"; // high score gif alt
-	}
-	 else{// if the player did not make it on the highscore list
-		 document.getElementById("message").src="images/good-luck.gif"; // change to starting good luck gif
-		 document.getElementById("message").alt="Good luck chump!"; // good luck alt text
-	}
+	 //if (this_score > tenth_score){// if the player's current score > the lowest high score
+	//	 document.getElementById("message").src="images/highscore.gif"; // change to highscore gif
+	//	 document.getElementById("message").alt="You made it on the highscore list!!!"; // high score gif alt
+	//}
+	 
 	 //Form Data Object (to send to PHP): contains the players name and score
 	 var formData=new FormData(this);
 	 formData.append("score", score);

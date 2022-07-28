@@ -148,3 +148,4 @@ function get_scores (callback){
 		}
  	}
 }
+get_scores(list_scores);
