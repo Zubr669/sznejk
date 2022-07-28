@@ -206,7 +206,7 @@ function resetForm (){
 
 // code to execute when
 myform.addEventListener("submit", function (event){// listen for the submit button to be clicked
-	 event.preventDefault(); // don't reload page
+	 //event.preventDefault(); // don't reload page
 	 //var tenth_score=document.getElementById("lowscore").value; // lowest high score
 	 //var this_score=document.getElementById("wynik").value; // player's current score
 
