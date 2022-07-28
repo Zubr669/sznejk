@@ -183,7 +183,7 @@ addEventListener("keydown", e => {
     };
 });
 
-
+var score=0;
 // ol element containing high scores
 const List=document.getElementById("lista");
 // game submition form
