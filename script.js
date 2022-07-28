@@ -262,7 +262,7 @@ function get_scores (callback){
  var list_scores=function (scores){
  	 let object=JSON.parse(scores);
  	 let lowest_score=object[9].score;
- 	 document.getElementById("lowscore").value=lowest_score;
+ 	 //document.getElementById("lowscore").value=lowest_score;
  	 for (let i=0; i<object.length; i++){
  		 let li=document.createElement("LI");
  		 let text=document.createTextNode(object[i].name + " ... " + object[i].score);
