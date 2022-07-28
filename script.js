@@ -241,7 +241,7 @@ myform.addEventListener("send", function (event){// listen for the submit button
 
 // Function to get the high score JSON
 function get_scores (callback){
-	 let file="scores.json";// file location
+	 let file="./scores.json";// file location
 	 fetch(file,{cache: "no-cache"}) // fetch
 		 // If the response isn OK
  		 .then(function(response){
@@ -283,7 +283,6 @@ function get_scores (callback){
  	}
 }
 
-get_scores();
 setInterval(function () {
     if (graneJest) {
         if (!przegrane) {
