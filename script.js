@@ -200,7 +200,7 @@ function resetForm (){
 	 // fetch scores.json and create new li elements holding the data
 	 get_scores(list_scores);
 	 // set score back to 0
-	 document.getElementById("score").value=0;
+	 //document.getElementById("score").value=0;
 	 score=0;
 }
 
@@ -248,7 +248,7 @@ function get_scores (callback){
  		 // If the response is OK
  		 response.json().then(function(data){
  			 let scores=JSON.stringify(data);
- 			 console.log(data);
+ 		//	 console.log(data);
  			 callback (scores);
  		})
  	})
