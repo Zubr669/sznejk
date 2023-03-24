@@ -64,14 +64,36 @@ function drawHeart(fromx, fromy, tox, toy, lw, hlen, color) {
     ctx.restore();
 
 }
-function kwadrat(x, y) {
-    drawHeart(50 * x + 25, 50 * y + 5, 40, 40, 40, 40, ctx.color);
+function kwadrat(x, y, k) {
+    ctx.translate(50*x + 25, 50*y +25);
+    switch (k) {
+        case 3: //prawo
+            ctx.rotate((90 * Math.PI) / 180);
+            break;
+        case 4:// dol
+        ctx.rotate((180 * Math.PI) / 180);
+            break;
+        case 1://lewo
+        ctx.rotate((270 * Math.PI) / 180);
+            break;
+        case 2://gora
+        ctx.rotate((0 * Math.PI) / 180);
+            break;
+    
+        default:
+            break;
+    }
+    drawHeart(0, -20, 40, 40, 40, 40, ctx.color);
+    ctx.setTransform(1, 0, 0, 1, 0, 0);
 }
 
 var kierunek = 1;
 
 var sznejk = [];
-sznejk.push([2, 2]);
+var kier = [];
+sznejk.push([2, 2, 1]);
+
+
 var długość = 4;
 var przegrane = false;
 
@@ -82,7 +104,7 @@ function rysuj() {
     ctx.clearRect(0, 0, c.width, c.height);
 
     ctx.fillStyle = "rgba(0,250,0)";
-    kwadrat(jablkox, jablkoy);
+    kwadrat(jablkox, jablkoy, 2);
 
     ctx.fillStyle = "rgba(0,0,0)";
     if (przegrane) {
@@ -91,7 +113,8 @@ function rysuj() {
     ramka();
     sznejk.forEach(element => {
         //console.log(element);
-        kwadrat(element[0], element[1]);
+
+        kwadrat(element[0], element[1],element[2]);
     });
 
 
@@ -118,19 +141,20 @@ function jest() {
 function tick() {
     var łep = sznejk[sznejk.length - 1];
     var nowy;
+    
     switch (kierunek) {
         case 1:
-            nowy = [łep[0] + 1, łep[1]];
+            nowy = [łep[0] + 1, łep[1],kierunek];
             break;
 
         case 2:
-            nowy = [łep[0], łep[1] + 1];
+            nowy = [łep[0], łep[1] + 1,kierunek];
             break;
         case 3:
-            nowy = [łep[0] - 1, łep[1]];
+            nowy = [łep[0] - 1, łep[1],kierunek];
             break;
         case 4:
-            nowy = [łep[0], łep[1] - 1];
+            nowy = [łep[0], łep[1] - 1,kierunek];
             break;
         default:
             break;
@@ -148,11 +172,13 @@ function tick() {
     });
     if (!przegrane) {
         sznejk.push(nowy);
+
     }
     if (sznejk.length - 1 >= długość) {
         sznejk = sznejk.reverse();
         sznejk.pop();
         sznejk.reverse();
+
     };
     if (nowy[0] == jablkox && nowy[1] == jablkoy) {
         długość += 1;
